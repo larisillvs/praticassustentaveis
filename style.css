@@ -1,1 +1,231 @@
+/* ==========================================================================
+   1. CENTRAL DE VARIÁVEIS (:root) - Identidade Visual e Alto Contraste
+   ========================================================================== */
+:root {
+    /* Cores Principais */
+    --cor-primaria: #1b4d3e;     /* Verde Floresta Profundo - Representa a força do Agro e Sustentabilidade (Excelente contraste) */
+    --cor-secundaria: #85e21f;   /* Verde Broto/Lima Elétrico - Foco em tecnologia, destaques e botões de ação */
+    --cor-fundo: #f4f7f5;        /* Cinza Off-White Suave - Evita a fadiga ocular em comparação ao branco puro */
+    
+    /* Cores de Texto e Suporte */
+    --texto-escuro: #111a16;     /* Grafite quase preto para máxima leitura sobre fundos claros */
+    --texto-claro: #ffffff;      /* Branco puro para textos sobre fundos escuros */
+    --cor-erro: #d9383a;         /* Vermelho Alerta amigável para sinalizar falhas de validação */
+    --cor-sucesso: #2a7b4c;      /* Verde Sucesso para indicar conformidade no monitoramento */
+    --cor-card-fundo: #ffffff;   /* Fundo puro dos blocos de conteúdo */
 
+    /* Fontes e Arredondamentos */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --borda-raio: 10px;          /* Suavização moderna nos cantos dos elementos */
+    --transicao-suave: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. RESET GLOBAL - Consistência entre Navegadores
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-principal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO DA ESTRUTURA SEMÂNTICA (UX & Tipografia)
+   ========================================================================== */
+body {
+    background-color: var(--cor-fundo);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho Principal */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Área de Conteúdo Central */
+main {
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Seção de Contexto do MIP */
+#contexto-mip {
+    background-color: var(--cor-card-fundo);
+    padding: 2rem;
+    border-radius: var(--borda-raio);
+    border-left: 6px solid var(--cor-primaria);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#contexto-mip h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+}
+
+/* Seção dos Cards Organizadores (Calculadora e Resultado) */
+#calculadora-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Responsividade Básica para Celulares */
+@media (max-width: 768px) {
+    #calculadora-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+article {
+    background-color: var(--cor-card-fundo);
+    padding: 2rem;
+    border-radius: var(--borda-raio);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+article h3, article h4 {
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+article p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Formulário e Elementos de Entrada */
+#formulario-mip {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--texto-escuro);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #ccd5d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--texto-escuro);
+    transition: var(--transicao-suave);
+    background-color: #fafbfc;
+}
+
+/* Feedback visual de foco no input para melhor acessibilidade */
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    background-color: var(--texto-claro);
+    box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.15);
+}
+
+/* Botão de Ação Interativo */
+button {
+    background-color: var(--cor-primaria);
+    color: var(--texto-claro);
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transicao-suave);
+    margin-top: 0.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #246652; /* Escurecimento sutil no hover */
+    transform: translateY(-2px); /* Efeito moderno de elevação */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Classes Utilitárias que o JavaScript usará para injetar Mensagens em Tempo Real */
+.msg-erro {
+    color: var(--cor-erro);
+    background-color: #fdf3f3;
+    padding: 1rem;
+    border-left: 4px solid var(--cor-erro);
+    border-radius: 4px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.msg-alerta-alto {
+    color: #b25e00;
+    background-color: #fffaf0;
+    padding: 1rem;
+    border-left: 4px solid #f2994a;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.msg-sustentavel {
+    color: var(--cor-sucesso);
+    background-color: #f4faf6;
+    padding: 1rem;
+    border-left: 4px solid var(--cor-sucesso);
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Rodapé Institucional */
+footer {
+    background-color: var(--texto-escuro);
+    color: #a0aba6;
+    text-align: center;
+    padding: 1.8rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+    border-top: 4px solid var(--cor-secundaria);
+}
+
+footer strong {
+    color: var(--texto-claro);
+}
